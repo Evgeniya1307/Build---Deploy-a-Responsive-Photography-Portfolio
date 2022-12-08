@@ -99,6 +99,14 @@ left: 0;
 z-index: 99;/*чтобы находился поверх всего*/
 }
 
+/*scroll javascript*/
+.window-scrolled{
+    background: var(--color-bg-2);
+    border-bottom: 0.2rem solid var(--color-bg-3);
+box-shadow: 0 1rem 1rem rgba(0, 0, 0, 0.3);
+}
+
+
 .nav__container{
     height: 100%;
     display: flex;
@@ -116,5 +124,70 @@ display: none;
 }
 
 .nav__links{
-
+display: flex;
+gap: 4rem;/*промежуток*/
 }
+
+.nav__socials{
+    display: flex;
+    gap:1rem;
+}
+
+/*каждую ссылку*/
+.nav__socials a{
+    width: 2rem;
+    height: 2rem;
+    background: linear-gradient(var(--color-primary-variant),var(--color-primary));
+border-radius: 0.5rem;
+color: var(--color-bg-4);
+    display: grid;
+    place-items: center;/*элементы встали по центру*/
+}
+
+/*элементы а -при наведение как чёрная тень*/
+.nav__socials a:hover{
+box-shadow: 0 1rem 1rem rgba(0, 0, 0, 0.4);
+}
+
+
+
+/*======================header==================*/
+.header{
+    width: 100vw;
+    height: 100vh;
+    position: relative;
+    top: 0;
+    background: linear-gradient(var(--color-bg-3),var(--color-bg-1));
+    overflow: hidden;
+}
+
+.header__container{
+    display:grid ;
+    grid-template-columns: 40% 50%;/*40 для левого 50 для правого*/
+    gap:10%;
+    margin-top: 10rem;
+    position: relative;
+}
+
+/*наложилось на внтурь*/
+.header__image-bg{
+    background: var(--color-bg-4);
+    height: 22rem;
+    width: 16rem;
+    position: absolute;
+}
+
+.header__image-lg{
+    width: 29rem;
+    position: relative;
+    top: 1rem;
+    left: 1rem;
+    filter: saturate(0) brightness(0.3);/*затемняет*/
+}
+
+.header__image-sm{
+   width: 28rem;
+   height: 28rem;
+   overflow: hidden;/*скрыть переполнение*/
+}
+
