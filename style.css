@@ -98,3 +98,23 @@ top:0;
 left: 0;
 z-index: 99;/*чтобы находился поверх всего*/
 }
+
+.nav__container{
+    height: 100%;
+    display: flex;
+  justify-content: space-between;  
+  align-items: center;
+}
+
+/*мне это нужно только на планшетах и телефонах*/
+.nav__toggle-btn{
+display: none;
+}
+
+.nav__logo{
+    width: 7.5rem;
+}
+
+.nav__links{
+
+}
