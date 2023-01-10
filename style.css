@@ -40,154 +40,300 @@
     box-sizing: border-box;
 }
 
-html{
-    scroll-behavior: smooth;/*плавно прокручивать */
+html {
+    scroll-behavior: smooth; /*плавно прокручивать */
 }
 
-body{
-    font-family: 'Montserrat', sans-serif;
+body {
+    font-family: "Montserrat", sans-serif;
     background: var(--color-bg-3);
     color: var(--color-light);
     line-height: 1.7;
 }
 
-h1, h2{
+h1,
+h2 {
     line-height: 1.1;
     font-weight: 400;
 }
 
-h1{
+h1 {
     font-size: 4rem;
     color: var(--color-white);
 }
 
-h2{
+h2 {
     font-size: 3.5rem;
 }
 
-a{
-color: var(--color-light);
-transition: var(--transition);
+a {
+    color: var(--color-light);
+    transition: var(--transition);
 }
 
-a:hover{
+a:hover {
     color: var(--color-primary);
 }
 
-.container{
-   width: var(--container-width-lg); 
-   margin: 0 auto;
-   max-width: 2160px;
- 
+.container {
+    width: var(--container-width-lg);
+    margin: 0 auto;
+    max-width: 2160px;
 }
 
-img{
+img {
     display: block;
     object-fit: cover;
     width: 100%;
 }
 
 /*----++++++++++++++===============nav=================*/
-nav{
-    height: 5rem ;/*16*5 calc(16px * 5)*/
-width: 100vw;
-display: grid;
-place-items: center;
-position: fixed;
-top:0;
-left: 0;
-z-index: 99;/*чтобы находился поверх всего*/
+nav {
+    height: 5rem; /*16*5 calc(16px * 5)*/
+    width: 100vw;
+    display: grid;
+    place-items: center;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 99; /*чтобы находился поверх всего*/
 }
 
 /*scroll javascript*/
-.window-scrolled{
+.window-scrolled {
     background: var(--color-bg-2);
     border-bottom: 0.2rem solid var(--color-bg-3);
-box-shadow: 0 1rem 1rem rgba(0, 0, 0, 0.3);
+    box-shadow: 0 1rem 1rem rgba(0, 0, 0, 0.3);
 }
 
-
-.nav__container{
+.nav__container {
     height: 100%;
     display: flex;
-  justify-content: space-between;  
-  align-items: center;
+    justify-content: space-between;
+    align-items: center;
 }
 
 /*мне это нужно только на планшетах и телефонах*/
-.nav__toggle-btn{
-display: none;
+.nav__toggle-btn {
+    display: none;
 }
 
-.nav__logo{
+.nav__logo {
     width: 7.5rem;
 }
 
-.nav__links{
-display: flex;
-gap: 4rem;/*промежуток*/
+.nav__links {
+    display: flex;
+    gap: 4rem; /*промежуток*/
 }
 
-.nav__socials{
+.nav__socials {
     display: flex;
-    gap:1rem;
+    gap: 1rem;
 }
 
 /*каждую ссылку*/
-.nav__socials a{
+.nav__socials a {
     width: 2rem;
     height: 2rem;
-    background: linear-gradient(var(--color-primary-variant),var(--color-primary));
-border-radius: 0.5rem;
-color: var(--color-bg-4);
+    background: linear-gradient(var(--color-primary-variant), var(--color-primary));
+    border-radius: 0.5rem;
+    color: var(--color-bg-4);
     display: grid;
-    place-items: center;/*элементы встали по центру*/
+    place-items: center; /*элементы встали по центру*/
 }
 
 /*элементы а -при наведение как чёрная тень*/
-.nav__socials a:hover{
-box-shadow: 0 1rem 1rem rgba(0, 0, 0, 0.4);
+.nav__socials a:hover {
+    box-shadow: 0 1rem 1rem rgba(0, 0, 0, 0.4);
 }
 
-
-
 /*======================header==================*/
-.header{
-    width: 100vw;
+.header {
+    max-width: 100vw;
     height: 100vh;
     position: relative;
     top: 0;
-    background: linear-gradient(var(--color-bg-3),var(--color-bg-1));
+    background: linear-gradient(var(--color-bg-3), var(--color-bg-1));
     overflow: hidden;
 }
 
-.header__container{
-    display:grid ;
-    grid-template-columns: 40% 50%;/*40 для левого 50 для правого*/
-    gap:10%;
+.header__container {
+    display: grid;
+    grid-template-columns: 43% 53%; /*43 для левого 53 для правого*/
+    gap: 4%;
     margin-top: 10rem;
     position: relative;
 }
 
 /*наложилось на внтурь*/
-.header__image-bg{
+.header__image-bg {
     background: var(--color-bg-4);
     height: 22rem;
     width: 16rem;
     position: absolute;
 }
 
-.header__image-lg{
+.header__image-lg {
     width: 29rem;
     position: relative;
     top: 1rem;
     left: 1rem;
-    filter: saturate(0) brightness(0.3);/*затемняет*/
+    filter: saturate(0) brightness(0.3); /*затемняет*/
+    transition: var(--transition);
 }
 
-.header__image-sm{
-   width: 28rem;
-   height: 28rem;
-   overflow: hidden;/*скрыть переполнение*/
+.header__image-sm {
+    width: 28rem;
+    height: 28rem;
+    overflow: hidden; /*скрыть переполнение*/
+    position: absolute;
+    left: 6rem;
+    top: 6rem;
+    transition: var(--transition);
 }
 
+.header__left:hover .header__image-sm {
+    opacity: 0; /*при наведении на картинку прячется*/
+}
+
+.header__left:hover .header__image-lg {
+    filter: saturate(1) brightness(1); /*делает изображение по яркости*/
+    border: 1rem solid var(--color-bg-4);
+    top: 0;
+    left: 0;
+}
+
+.header__head {
+    display: flex;
+    gap: 2rem;
+    align-items: flex-start;
+}
+
+/*пустой ввод*/
+.empty {
+    height: 3.5rem;
+    width: 18rem;
+    background: var(--color-bg-2);
+    border-radius: calc(3.5rem / 2);
+    margin-bottom: 3.5rem;
+    box-shadow: inset 0 1rem rgba(0, 0, 0, 0.3); /*добавляет тень к элементу*/
+    border: 1px solid var(--color-bg-4);
+}
+
+.header__tag {
+    color: var(--color-primary-variant);
+}
+
+.header__right p {
+    margin-top: 2rem;
+    width: 85%;
+}
+
+/*показывается только на планшетах и ​​телефонах*/
+.header__btn-md {
+    display: none;
+}
+
+.header__frames {
+    position: absolute;
+    top: 88vh; /* это процентная величина от общей высоты области просмотра.*/
+    right: 44rem;
+    transition: var(--transition);
+}
+
+.header__frame {
+    width: 14rem;
+    border: 0.4rem solid var(--color-bg-3);
+    box-shadow: 0 0 4rem rgba(0, 0, 0, 0.5);
+    position: absolute;
+    transform: rotate(-10deg); /*под углом*/
+    transform-origin: bottom left;
+    transition: var(--transition);
+}
+
+.header__frame:nth-child(2) {
+    /*Псевдокласс CSS сопоставляет элементы на основе их положения среди группы братьев и сестер*/
+    transform: rotate(20deg);
+    top: -2rem;
+    left: 2rem;
+}
+
+.header__frames:hover .header__frame {
+    transform: rotate(0); /*при наведении разворачивается*/
+}
+
+.header__frames:hover .header__frame:nth-child(2) {
+    top: 0;
+    left: 15rem;
+}
+
+/*contact buttons*/
+.contact__btn {
+    color: var(--color-bg-1);
+    width: 10rem;
+    height: 10rem;
+    border-radius: 50%;
+    display: grid;
+    place-items: center;
+    cursor: pointer;
+    transition: var(--transition);
+  
+}
+
+.header__btn {
+    background: linear-gradient(-30deg,
+        var(--color-primary-variant),
+        var(--color-primary),
+        var(--color-primary-variant)
+    );
+    position: absolute; /*Содержащий блок является предком, относительно которого позиционируется элемент.)*/
+    right: 6%;
+    bottom: -3rem;
+}
+
+.header__btn:hover {
+    box-shadow: 0 2rem 2rem rgba(0, 0, 0, 0.3);
+    transform: translateY(-1rem);
+    color: var(--color-bg-1);
+}
+
+.contact__btn i {
+    font-size: 3.5rem;
+    position: absolute;
+}
+
+.contact__btn p {
+    font-size: 1rem;
+    font-weight:600;
+    width: 10rem;
+    height: 10rem;
+    display: flex;
+    justify-content: center;
+    animation: spinText 30s linear infinite;
+}
+
+.contact__btn p span {
+    /*position: relative сдвигает элемента обычного позиционирования */
+    position: absolute;
+    transform-origin: 0.3rem 5rem;
+}
+
+@keyframes spinText {
+    to {
+        transform: rotate(360deg); /*крутиться кнопка*/
+    }
+}
+
+
+/*=========ABOUT=========*/
+#about {
+margin-top: 18rem;
+}
+
+.about__container{
+    display: grid;
+    grid-template-columns: 10rem 26rem auto;
+gap: 3rem;
+position: relative;
+}
